@@ -24,5 +24,12 @@ namespace Search.Controllers
 
             return Ok(response);
         }
+
+        [HttpGet("pagination")]
+        public async Task<IActionResult> GetTasksWithPagination([FromQuery] GetTasksWithPaginationQuery getTasksWithPaginationQuery)
+        {
+            var response = await _mediator.Send(getTasksWithPaginationQuery);
+            return Ok(response);
+        }
     }
 }
